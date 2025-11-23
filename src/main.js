@@ -3,7 +3,7 @@ import './styles.css'; // Vite handles CSS imports
 import { addMessage, clearInput, getInputValue, setupEventListeners } from './ui.js';
 
 // Initialization
-const INITIAL_MESSAGE = "Welcome! I'm your automated assistant. How can I help you?";
+const INITIAL_MESSAGE = "Ho ho hoi!";
 
 function init() {
     // Show welcome message
