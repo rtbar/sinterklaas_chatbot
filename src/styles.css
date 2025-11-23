@@ -387,3 +387,54 @@ button#send-btn:hover {
     text-align: center;
     display: none;
 }
+
+/* Info Overlay */
+#info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    z-index: 9998; /* Below login, above chat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.info-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-header h2 {
+    color: #003082;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-bottom: 2px solid #003082;
+    padding-bottom: 10px;
+}
+
+.info-content {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.info-content p {
+    margin-bottom: 10px;
+}
