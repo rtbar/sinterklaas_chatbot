@@ -9,7 +9,7 @@ const POEM_PARTS = [
     "Cudos, Genius, sharp of mind, for reaching this odd place,\nYou’ve slipped through by a twist of chance and just a touch of grace.\nThe factory of Sinterklaas, once humming, bright, and clear,\nHas stumbled in its workings and now calls for you to steer.",
     "The system tried to mend itself, but every patch misfired,\nSo SintBots now lie scattered, guarding clues of what transpired.\nEach SintBot holds a logfile, where the code slipped off the track,\nBut I can’t read a single one till you bring their numbers back.",
     "Your journey starts with only this: go find the first small bot;\nIts serial code lies hidden well, though you can find the spot.\nReturn that code here when you’re sure, exact from start to end,\nAnd I’ll reveal what broke the flow so we can start to mend.",
-    "So search with care, observe each clue, let nothing slip your sight;\nI wait here for the number, Maarten — bring it, and we’ll set things right."
+    "So search with care, trace every sign, stay sharp and hold on tight;\nBring me the proper number back and we’ll restore the light."
 ];
 
 function sleep(ms) {
