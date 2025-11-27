@@ -877,4 +877,20 @@ button#send-btn:hover {
     #advanced-btn {
         font-size: 1rem;
     }
+
+    /* Fix tooltip on mobile to prevent cropping */
+    .hint-icon[data-tooltip]:hover::after {
+        left: auto;
+        right: 0;
+        transform: none;
+        white-space: normal;
+        max-width: 200px;
+        width: max-content;
+    }
+
+    .hint-icon[data-tooltip]:hover::before {
+        left: auto;
+        right: 4px;
+        transform: none;
+    }
 }
