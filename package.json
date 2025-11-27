@@ -1,6 +1,7 @@
 {
     "name": "simple-modern-chatbot",
     "version": "1.0.0",
+    "homepage": "https://rtbar.github.io/mijnrijkswaterstaat",
     "type": "module",
     "scripts": {
         "dev": "vite",

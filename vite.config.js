@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: '/sinterklaas_chatbot/',
+    base: '/mijnrijkswaterstaat/',
     build: {
         outDir: 'docs',
     },
