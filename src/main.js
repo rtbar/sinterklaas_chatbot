@@ -63,6 +63,15 @@ const emailItem = document.getElementById('email-item');
 const emailPreview = document.getElementById('email-preview');
 const maliciousLink = document.getElementById('malicious-link');
 
+// Session Management
+function checkSession() {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+        loginOverlay.style.display = 'none';
+        accountOverlay.style.display = 'flex'; // Restore to account page
+    }
+}
+
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const user = document.getElementById('username').value;
@@ -70,6 +79,7 @@ loginForm.addEventListener('submit', (e) => {
 
     if (user === 'Maarten' && pass === 'password') {
         // Success - Login
+        sessionStorage.setItem('isLoggedIn', 'true'); // Set session
         loginOverlay.style.display = 'none';
         infoOverlay.style.display = 'flex'; // Show info page
     } else {
@@ -95,7 +105,8 @@ maliciousLink.addEventListener('click', (e) => {
 });
 
 goBackBtn.addEventListener('click', () => {
-    location.reload(); // Reload to "safety"
+    warningOverlay.style.display = 'none';
+    accountOverlay.style.display = 'flex'; // Go back to account page
 });
 
 advancedBtn.addEventListener('click', () => {
@@ -111,3 +122,4 @@ proceedLink.addEventListener('click', (e) => {
 
 // Start the app
 init();
+checkSession();
