@@ -6,7 +6,7 @@ import { addMessage, clearInput, getInputValue, hideTypingIndicator, setupEventL
 const INITIAL_MESSAGE = "Ho ho hoi, Maarten!";
 
 const POEM_PARTS = [
-    "Welcome, Genius, sharp of mind, for reaching this odd place,\nA portal half by accident, half guided into grace.\nThe factory of Sinterklaas, once humming, bright, and clear,\nHas stumbled in its workings and now calls for you to steer.",
+    "Cudos, Genius, sharp of mind, for reaching this odd place,\nYou’ve slipped through by a twist of chance and just a touch of grace.\nThe factory of Sinterklaas, once humming, bright, and clear,\nHas stumbled in its workings and now calls for you to steer.",
     "The system tried to mend itself, but every patch misfired,\nSo SintBots now lie scattered, guarding clues of what transpired.\nEach SintBot holds a logfile, where the code slipped off the track,\nBut I can’t read a single one till you bring their numbers back.",
     "Your journey starts with only this: go find the first small bot;\nIts serial code lies hidden well, though you can find the spot.\nReturn that code here when you’re sure, exact from start to end,\nAnd I’ll reveal what broke the flow so we can start to mend.",
     "So search with care, observe each clue, let nothing slip your sight;\nI wait here for the number, Maarten — bring it, and we’ll set things right."
@@ -16,9 +16,42 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * Saves a message to session storage.
+ * @param {string} text 
+ * @param {string} sender 
+ */
+function saveMessage(text, sender) {
+    const messages = JSON.parse(sessionStorage.getItem('chatMessages') || '[]');
+    messages.push({ text, sender });
+    sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+}
+
+/**
+ * Loads messages from session storage and displays them.
+ * @returns {boolean} True if messages were loaded, false otherwise.
+ */
+function loadMessages() {
+    const messages = JSON.parse(sessionStorage.getItem('chatMessages') || '[]');
+    if (messages.length === 0) return false;
+
+    messages.forEach(msg => addMessage(msg.text, msg.sender));
+    return true;
+}
+
+/**
+ * Wrapper for addMessage that also saves to storage.
+ * @param {string} text 
+ * @param {string} sender 
+ */
+function appendMessage(text, sender) {
+    addMessage(text, sender);
+    saveMessage(text, sender);
+}
+
 async function startChatSequence() {
     // Show welcome message
-    addMessage(INITIAL_MESSAGE, 'bot');
+    appendMessage(INITIAL_MESSAGE, 'bot');
 
     // Play intro poem sequence
     for (const part of POEM_PARTS) {
@@ -26,7 +59,7 @@ async function startChatSequence() {
         showTypingIndicator();
         await sleep(2000);
         hideTypingIndicator();
-        addMessage(part, 'bot');
+        appendMessage(part, 'bot');
     }
 }
 
@@ -46,14 +79,14 @@ function handleUserSubmission() {
 
     if (!validation.isValid) {
         if (validation.errorMessage) {
-            addMessage(validation.errorMessage, 'bot'); // Gentle warning
+            appendMessage(validation.errorMessage, 'bot'); // Gentle warning
             clearInput();
         }
         return; // Stop if invalid
     }
 
     // 2. Show User Message
-    addMessage(rawInput, 'user');
+    appendMessage(rawInput, 'user');
     clearInput();
 
     // 3. Get Bot Response (with a slight artificial delay for realism)
@@ -61,7 +94,7 @@ function handleUserSubmission() {
     setTimeout(() => {
         hideTypingIndicator();
         const botResponse = getBotResponse(rawInput);
-        addMessage(botResponse, 'bot');
+        appendMessage(botResponse, 'bot');
     }, 2000);
 }
 
@@ -146,7 +179,9 @@ function restoreState() {
                 break;
             case 'chat':
                 document.title = "SinterClaude v1.0";
-                startChatSequence();
+                if (!loadMessages()) {
+                    startChatSequence();
+                }
                 break;
             default:
                 // Fallback to account if something is weird but logged in
