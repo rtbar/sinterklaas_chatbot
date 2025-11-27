@@ -19,7 +19,9 @@ export function addMessage(text, sender) {
     wrapper.appendChild(bubble);
     chatHistory.appendChild(wrapper);
 
-    scrollToBottom();
+    if (sender === 'user') {
+        scrollToBottom();
+    }
 }
 
 /**
@@ -84,7 +86,7 @@ export function showTypingIndicator() {
 
     wrapper.appendChild(bubble);
     chatHistory.appendChild(wrapper);
-    scrollToBottom();
+    // scrollToBottom(); // Disabled for bot typing as per request
     typingIndicatorElement = wrapper;
 }
 
