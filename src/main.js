@@ -1,6 +1,6 @@
 import { getBotResponse, validateInput } from './chatbotLogic.js';
 import './styles.css'; // Vite handles CSS imports
-import { addMessage, clearInput, getInputValue, setupEventListeners } from './ui.js';
+import { addMessage, clearInput, getInputValue, hideTypingIndicator, setupEventListeners, showTypingIndicator } from './ui.js';
 
 // Initialization
 const INITIAL_MESSAGE = "Ho ho hoi!";
@@ -35,10 +35,12 @@ function handleUserSubmission() {
     clearInput();
 
     // 3. Get Bot Response (with a slight artificial delay for realism)
+    showTypingIndicator();
     setTimeout(() => {
+        hideTypingIndicator();
         const botResponse = getBotResponse(rawInput);
         addMessage(botResponse, 'bot');
-    }, 600);
+    }, 2000);
 }
 
 // Login Logic
