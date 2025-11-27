@@ -20,10 +20,11 @@ function sleep(ms) {
  * Saves a message to session storage.
  * @param {string} text 
  * @param {string} sender 
+ * @param {string} [type='default']
  */
-function saveMessage(text, sender) {
+function saveMessage(text, sender, type = 'default') {
     const messages = JSON.parse(sessionStorage.getItem('chatMessages') || '[]');
-    messages.push({ text, sender });
+    messages.push({ text, sender, type });
     sessionStorage.setItem('chatMessages', JSON.stringify(messages));
 }
 
@@ -35,7 +36,7 @@ function loadMessages() {
     const messages = JSON.parse(sessionStorage.getItem('chatMessages') || '[]');
     if (messages.length === 0) return false;
 
-    messages.forEach(msg => addMessage(msg.text, msg.sender));
+    messages.forEach(msg => addMessage(msg.text, msg.sender, msg.type));
     return true;
 }
 
@@ -43,10 +44,11 @@ function loadMessages() {
  * Wrapper for addMessage that also saves to storage.
  * @param {string} text 
  * @param {string} sender 
+ * @param {string} [type='default']
  */
-function appendMessage(text, sender) {
-    addMessage(text, sender);
-    saveMessage(text, sender);
+function appendMessage(text, sender, type = 'default') {
+    addMessage(text, sender, type);
+    saveMessage(text, sender, type);
 }
 
 async function startChatSequence() {
@@ -91,11 +93,31 @@ function handleUserSubmission() {
 
     // 3. Get Bot Response (with a slight artificial delay for realism)
     showTypingIndicator();
-    setTimeout(() => {
+
+    // We use an async IIFE here to handle potential multi-part responses with delays
+    (async () => {
+        await sleep(2000);
         hideTypingIndicator();
+
         const botResponse = getBotResponse(rawInput);
-        appendMessage(botResponse, 'bot');
-    }, 2000);
+
+        if (Array.isArray(botResponse)) {
+            // Handle multi-part response
+            for (const msg of botResponse) {
+                appendMessage(msg.text, 'bot', msg.type);
+                // Add a small delay between parts if there are more
+                if (botResponse.indexOf(msg) < botResponse.length - 1) {
+                    await sleep(1000);
+                    showTypingIndicator();
+                    await sleep(2000);
+                    hideTypingIndicator();
+                }
+            }
+        } else {
+            // Handle single response
+            appendMessage(botResponse, 'bot');
+        }
+    })();
 }
 
 // Login Logic

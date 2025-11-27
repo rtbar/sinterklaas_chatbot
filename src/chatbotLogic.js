@@ -6,6 +6,23 @@ const RULES = [
     {
         pattern: /^(hi|hello|hey|greetings)/i,
         response: "Ho ho hoi, Maarten!",
+    },
+    {
+        pattern: /stbt-c4pt-ainai/i,
+        response: [
+            {
+                text: "Maarten, scherp gevonden! The code you traced with care.\nWhat joy this bot is living, not rusting in despair.\nIts heartbeat dim but present, its storage faint but true,\nAnd in its logs were found these rules, now read aloud to you:",
+                type: 'default'
+            },
+            {
+                text: "No breaking, bending, forcing parts; keep every piece intact,\nNo hands into the water, nor direct boat contact.\nOnly dry land, SintBots, the vessel’s upper side,\nAre clues to lead you on; no hidden force applied.",
+                type: 'log'
+            },
+            {
+                text: "So… that was standard bot-talk, nothing secret, nothing sly,\nJust rules that every helper learns before they even try.\nBut since your boat’s still dry and stuck, the release bot missed its cue,\nSo go inspect its hidden shell; the job’s been passed to you.\n\nThese bots are kept behind locked doors, it’s protocol, you see,\nAnd that means somewhere on dry land there lies a hidden key.\nYou’re sharp enough to find it, Maarten, truly, that I trust.\nSo track it down, unlock the door, and free the bot you must.",
+                type: 'default'
+            }
+        ]
     }
 ];
 

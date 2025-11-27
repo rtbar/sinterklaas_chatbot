@@ -7,13 +7,19 @@ const sendBtn = document.getElementById('send-btn');
  * Creates and appends a message bubble to the chat history.
  * @param {string} text - The message content.
  * @param {string} sender - 'user' or 'bot'.
+ * @param {string} [type='default'] - 'default' or 'log'.
  */
-export function addMessage(text, sender) {
+export function addMessage(text, sender, type = 'default') {
     const wrapper = document.createElement('div');
     wrapper.classList.add('message-wrapper', sender === 'user' ? 'user-message' : 'bot-message');
 
     const bubble = document.createElement('div');
     bubble.classList.add('bubble');
+
+    if (type === 'log') {
+        bubble.classList.add('log-message');
+    }
+
     bubble.textContent = text;
 
     wrapper.appendChild(bubble);
