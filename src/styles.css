@@ -745,12 +745,36 @@ button#send-btn:hover {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 
+    body {
+        height: 100dvh;
+        /* Force dynamic height on body too */
+        width: 100vw;
+        background-color: #1F1C18;
+        /* Fallback color to prevent white bars */
+        align-items: stretch;
+        /* Ensure children stretch to fill */
+    }
+
+    #app {
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
     /* Chat Container */
     .chat-container {
-        height: 100dvh;
-        /* Use dynamic viewport height for mobile browsers */
-        max-width: 100%;
+        height: 100%;
+        width: 100%;
+        max-width: none;
         border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-input-area {
+        /* Handle iPhone X+ safe area */
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
     }
 
     .chat-header h1 {
