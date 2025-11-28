@@ -20,7 +20,11 @@ export function addMessage(text, sender, type = 'default') {
         bubble.classList.add('log-message');
     }
 
-    bubble.textContent = text;
+    if (sender === 'bot') {
+        bubble.innerHTML = text;
+    } else {
+        bubble.textContent = text;
+    }
 
     wrapper.appendChild(bubble);
     chatHistory.appendChild(wrapper);

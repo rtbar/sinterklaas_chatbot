@@ -54,7 +54,7 @@ const RULES = [
         pattern: /stbt-red-ht404/i,
         response: [
             {
-                text: "I wear three red coats at once, one body, triple name;\nThree harbours on one spinning world all claim the same old fame.\nFirst: a sunlit southern quay, with horses, tiles and spray;\nThey swear I sail from orange winds that send their gifts this way.\nSecond: where the maps run out and snow replaces shore;\nReindeer scrape the frozen night the compass calls “no more.”\nThird: old stones above warm seas where “Nicholas” was said;\nA bishop walked those eastern streets before my hull turned red.\nThree coasts, one globe, three stopping points; trace them on the sphere,\nSet sun, and snow, and ancient walls… let hidden numbers appear.\nThose digits wake the sleeping core that hums in darkness here.",
+                text: "I wear three red coats at once, one body, triple name;\nThree harbours on one spinning world all claim the same old fame.\nFirst: a sunlit southern quay, with horses, tiles and spray;\nThey swear I sail from orange winds that send their gifts this way.\nSecond: where the maps run out and snow replaces shore;\nReindeer scrape the frozen night the compass calls “no more.”\nThird: old stones above warm seas where “Nicholas” was said;\nA bishop walked those eastern streets before my hull turned red.\n<a href=\"https://rtbar.github.io/earth_animation/\" target=\"_blank\" style=\"color: inherit; text-decoration: none; cursor: text; font-family: inherit;\">Three coasts, one globe, three stopping points; trace them on the sphere,</a>\nSet sun, and snow, and ancient walls… let hidden numbers appear.\nThose digits wake the sleeping core that hums in darkness here.",
                 type: 'log'
             },
             {
