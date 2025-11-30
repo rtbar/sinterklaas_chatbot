@@ -10,7 +10,7 @@ const RULES = [
         response: "Ho ho hoi, Maarten!",
     },
     {
-        pattern: /stbt-c4pt-ainai/i,
+        pattern: /stbt-cptn-a1a1/i,
         response: [
             {
                 text: "Maarten, scherp gevonden! The code you traced with care.\nWhat joy this bot is living, not rusting in despair.\nIts heartbeat dim but present, its storage faint but true,\nAnd in its logs were found these rules, now read aloud to you:",
@@ -27,7 +27,7 @@ const RULES = [
         ]
     },
     {
-        pattern: /stb-port-stuck/i,
+        pattern: /stbt-p0rt-s7uc/i,
         response: [
             {
                 text: "Pressure log: control-room load has climbed beyond design,\nGift boxes wedged on levers tight, all meters out of line.\nSafety locked the harbor gate, the platform fixed in place,\nPresent pressure at this node has tripped the fail-safe case.\nSide note: one small pump consignment tagged “For Maarten” on the crate,\nFiled under “staff with steady hands who keep lines running straight.”",
@@ -40,7 +40,7 @@ const RULES = [
         ]
     },
     {
-        pattern: /stbt-hbr-cl0g3r/i,
+        pattern: /stbt-h4br-cl0g/i,
         response: [
             {
                 text: "New access ping: the door gave way, fresh footsteps crossed the floor,\nThe logs recorded every step, like they have done before..\nThe harbor gate stands high and still, holds back the wider blue,\nWhile quiet gears beneath the boards still choose who passes through.\nOne unit flagged as “out at sea” has slipped beyond the wall,\nA SintBot bobbing in the waves, no beacon in its call.\nIts serial stamped “for home use only,” not for foreign view,\nYet oceans tend to mock the forms that customs clerks once drew.\nI’ve noted: those who reach this room and read this modest trace\nMay help the waiting hull move on and grant it open space.\nWhen metal shifts and water parts, the way ahead is clear,\nAnd someone with a steady hand can fish our straying friend back here.",
@@ -53,7 +53,7 @@ const RULES = [
         ]
     },
     {
-        pattern: /stbt-red-ht404/i,
+        pattern: /stbt-r3d-ht404/i,
         response: [
             {
                 text: "I wear three red coats at once, one body, triple name;\nThree harbours on one spinning world all claim the same old fame.\nFirst: a sunlit southern quay, with horses, tiles and spray;\nThey swear I sail from orange winds that send their gifts this way.\nSecond: where the maps run out and snow replaces shore;\nReindeer scrape the frozen night the compass calls “no more.”\nThird: old stones above warm seas where “Nicholas” was said;\nA bishop walked those eastern streets before my hull turned red.\n<a href=\"https://rtbar.github.io/earth_animation/\" target=\"_blank\" style=\"color: #f0d9d9; text-decoration: none; cursor: text; font-family: inherit;\">Three coasts, one globe, three stopping points; trace them on the sphere,</a>\nSet sun, and snow, and ancient walls… let hidden numbers appear.\nThose digits wake the sleeping core that hums in darkness here.",
@@ -66,7 +66,7 @@ const RULES = [
         ]
     },
     {
-        pattern: /stbt-bl4ck-0u7/i,
+        pattern: /stbt-bl4k-0u7/i,
         onMatch: () => { blackoutPoemShown = true; },
         response: [
             {
